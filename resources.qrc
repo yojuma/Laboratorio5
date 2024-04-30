@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>papel.png</file>
+        <file>piedra.png</file>
+        <file>tijera.png</file>
+    </qresource>
+</RCC>
