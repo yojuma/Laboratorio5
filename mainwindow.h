@@ -7,6 +7,7 @@
 #include <papel.h>
 #include <tijera.h>
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -19,11 +20,19 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    bool collidesWithObjects(qreal x, qreal y);
+    bool collidesWithObjects(qreal x, qreal y);  
+    int tijeras=0;
+    int piedras=0;
+    int papeles=0;
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_tijera_clicked();
+    void on_piedra_clicked();
+    void actualizarEscena();
+
+
+    void on_papel_clicked();
 
 private:
 

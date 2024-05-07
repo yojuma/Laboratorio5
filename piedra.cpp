@@ -6,14 +6,14 @@ Piedra::Piedra(QObject *parent)
      rowPixmap = 0;
      colPixmap = 0;
      posX=0;
-     posY=0;
-     width = 600;
-     height = 500;
+     posY=10;
+     width = 93;
+     height = 92;
+     direccion = true;
      stripe = new QPixmap(":/piedra.png");
      timer = new QTimer;
-     //timer->start(200);
-
-     connect(timer, &QTimer::timeout, this, &Piedra::actualizarPersonaje);
+     timer->stop();
+     connect(timer, SIGNAL(timeout()), this, SLOT(actualizarEscena()));
 }
 
 QRectF Piedra::boundingRect() const{
@@ -26,6 +26,70 @@ void Piedra::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
      Q_UNUSED(option);
      Q_UNUSED(widget);
 }
-void Piedra::actualizarPersonaje(){
+void Piedra::actualizarEscena(){
+    if(direccion){
+        moveDown();
+    }else{
+        moveUp();
+    }
+    checkCollision();
     update(0, 0, width, height);
+}
+
+float Piedra::getPosX(){
+    return posX;
+}
+
+float Piedra::getPosY(){
+    return posY;
+}
+
+float Piedra::getWidth(){
+    return width;
+}
+
+float Piedra::getHeight(){
+    return height;
+}
+
+void Piedra::setPosX(int newX){
+    posX=newX;
+}
+
+
+void Piedra::moveDown(){
+    rowPixmap = 0;
+    colPixmap += width;
+    if(colPixmap >= 372){
+        colPixmap = 0;
+    }
+    posY += 20;
+    setPos(posX, posY);
+
+}
+
+void Piedra::moveUp(){
+    rowPixmap = 0;
+    colPixmap += width;
+    if(colPixmap >= 372){
+        colPixmap = 0;
+    }
+    posY -= 20;
+    setPos(posX, posY);
+
+}
+
+void Piedra::checkCollision(){
+    //qDebug()<<"posX: "<<getPosX();
+    // colision con el borde superior o el inferior
+    if(getPosY() >= VERTLIM - getHeight()){
+        direccion=false;
+    }
+    if(getPosY() < 0){
+        direccion=true;
+    }
+}
+
+void Piedra::on_pushButton_clicked(){
+    timer->start(200);
 }

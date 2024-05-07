@@ -6,6 +6,9 @@
 #include <QRectF>
 #include <QPainter>
 #include <QTimer>
+#include <QDebug>
+
+const float VERTLIM = 700;
 
 class Piedra : public QObject, public QGraphicsItem {
     Q_OBJECT
@@ -14,10 +17,19 @@ public:
 
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+    void moveUp();
+    void moveDown();
+    void checkCollision();
+    float getPosX();
+    float getPosY();
+    float getWidth();
+    float getHeight();
+    bool direccion;
+    void setPosX(int newX);
 
 public slots:
-    void actualizarPersonaje();
-
+    void actualizarEscena();
+    void on_pushButton_clicked();
 private:
     QTimer *timer;
     QPixmap* stripe;
