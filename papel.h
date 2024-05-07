@@ -27,12 +27,7 @@ public:
     void setPosX(int newX);
     void setPosY(int newY);
     void move();
-    void moveDown1();
-    void moveDown2();
-    void moveUp1();
-    void moveUp2();
     int getColisiones();
-    int colisiones=0;
 
 public slots:
     void actualizarEscena();
@@ -41,7 +36,7 @@ public slots:
 private:
     QTimer *timer;
     QPixmap* stripe;
-    qreal rowPixmap, colPixmap, width, height, posX, posY,posXtmp, posYtmp;
+    qreal rowPixmap, colPixmap, width, height, posX, posY, posXtmp, posYtmp;
 };
 
 #endif // PAPEL_H

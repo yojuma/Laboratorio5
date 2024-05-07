@@ -5,7 +5,6 @@ Piedra::Piedra(QObject *parent)
 {
      rowPixmap = 0;
      colPixmap = 0;
-     posX=0;
      posY=10;
      width = 93;
      height = 92;
@@ -23,6 +22,8 @@ QRectF Piedra::boundingRect() const{
 void Piedra::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
      //QPixmap scaled = stripe->scaled(QSize(254,320));
      painter->drawPixmap(0,0, *stripe, colPixmap, rowPixmap, width, height);
+     painter->setBrush(Qt::transparent);
+     painter->drawRect(boundingRect());
      Q_UNUSED(option);
      Q_UNUSED(widget);
 }

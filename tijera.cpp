@@ -1,5 +1,6 @@
 #include "tijera.h"
 
+
 Tijera::Tijera(QObject *parent)
     : QObject{parent}
 {

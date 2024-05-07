@@ -5,8 +5,6 @@ Papel::Papel(QObject *parent)
 {
     rowPixmap = 0;
     colPixmap = 0;
-    posX=0;
-    posY=0;
     posXtmp=20;
     posYtmp=20;
     width = 78;
@@ -43,19 +41,15 @@ void Papel::checkCollision(){
     // colision con el borde superior o el inferior
     if(getPosY() >= VERTLIMIT - getHeight()){ //inferior
         posYtmp=-20;
-
     }
     else if(getPosY() <= 0){
        posYtmp=20;
-
     }
     else if(getPosX() >= HORZLIMIT - getHeight()){
         posXtmp=-20;
-
     }
     else if(getPosX() <= 0){
        posXtmp=20;
-
     }
 
 }
@@ -80,15 +74,12 @@ float Papel::getHeight(){
     return height;
 }
 
-int Papel::getColisiones(){
-    return colisiones;
-}
 void Papel::setPosX(int newX){
     posX=newX;
 }
 
 void Papel::setPosY(int newY){
-    posX=newY;
+    posY=newY;
 }
 
 void Papel::move(){
@@ -100,49 +91,5 @@ void Papel::move(){
     posX+=posXtmp;
     posY+=posYtmp;
     setPos(posX,posY);
-}
-
-void Papel::moveDown1(){
-    rowPixmap = 0;
-    colPixmap += width;
-    if(colPixmap >= 624){
-        colPixmap = 0;
-    }
-    posX += 20;
-    posY += 20;
-    setPos(posX, posY);
-}
-
-void Papel::moveUp1(){
-    rowPixmap = 0;
-    colPixmap += width;
-    if(colPixmap >= 624){
-        colPixmap = 0;
-    }
-    posX += 20;
-    posY -= 20;
-    setPos(posX, posY);
-}
-
-void Papel::moveDown2(){
-    rowPixmap = 0;
-    colPixmap += width;
-    if(colPixmap >= 624){
-        colPixmap = 0;
-    }
-    posX -= 20;
-    posY += 20;
-    setPos(posX, posY);
-}
-
-void Papel::moveUp2(){
-    rowPixmap = 0;
-    colPixmap += width;
-    if(colPixmap >= 624){
-        colPixmap = 0;
-    }
-    posX -= 20;
-    posY -= 20;
-    setPos(posX, posY);
 }
 
