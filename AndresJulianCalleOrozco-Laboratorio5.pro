@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     explosion.cpp \
+    jugador.cpp \
     main.cpp \
     mainwindow.cpp \
     papel.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     explosion.h \
+    jugador.h \
     mainwindow.h \
     papel.h \
     piedra.h \

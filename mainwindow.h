@@ -6,7 +6,8 @@
 #include <piedra.h>
 #include <papel.h>
 #include <tijera.h>
-
+#include <jugador.h>
+#include <QKeyEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,22 +23,25 @@ public:
     MainWindow(QWidget *parent = nullptr);
     bool collidesWithObjects(qreal x, qreal y);
     void actualizarColision();
+    void keyPressEvent(QKeyEvent* event);
+    void activarTimer();
     int tijeras=0;
     int piedras=0;
     int papeles=0;
     int puntosPapel=0;
     int puntosPiedra=0;
     int puntosTijera=0;
+    int puntosJugador=0;
+    int tiempo=20;
     ~MainWindow();
 
 private slots:
-    void on_tijera_clicked();
-    void on_piedra_clicked();
-    void on_papel_clicked();
+    void on_ButtomTijera_clicked();
+    void on_ButtomPiedra_clicked();
+    void on_ButtomPapel_clicked();
     void on_IniciarConJugador_clicked();
 
 private:
-
     Ui::MainWindow *ui;
     QGraphicsScene* scene;
     QVector<Piedra*> npiedras;
@@ -47,5 +51,6 @@ private:
     Piedra* piedra;
     Papel* papel;
     Tijera* tijera;
+    Jugador *mira = new Jugador;
 };
 #endif // MAINWINDOW_H

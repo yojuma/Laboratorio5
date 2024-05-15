@@ -24,7 +24,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="tijera">
+   <widget class="QPushButton" name="ButtomTijera">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -63,7 +63,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="piedra">
+   <widget class="QPushButton" name="ButtomPiedra">
     <property name="geometry">
      <rect>
       <x>470</x>
@@ -102,7 +102,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="papel">
+   <widget class="QPushButton" name="ButtomPapel">
     <property name="geometry">
      <rect>
       <x>910</x>
@@ -227,7 +227,7 @@
     <property name="geometry">
      <rect>
       <x>1270</x>
-      <y>280</y>
+      <y>340</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -242,7 +242,7 @@
       <x>1220</x>
       <y>10</y>
       <width>211</width>
-      <height>231</height>
+      <height>301</height>
      </rect>
     </property>
    </widget>
@@ -250,7 +250,7 @@
     <property name="geometry">
      <rect>
       <x>1220</x>
-      <y>270</y>
+      <y>330</y>
       <width>211</width>
       <height>81</height>
      </rect>
@@ -260,7 +260,7 @@
     <property name="geometry">
      <rect>
       <x>1280</x>
-      <y>310</y>
+      <y>370</y>
       <width>91</width>
       <height>25</height>
      </rect>
@@ -269,16 +269,49 @@
      <string>Iniciar</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>1230</x>
+      <y>270</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Jugador:</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="puntosJugador">
+    <property name="geometry">
+     <rect>
+      <x>1300</x>
+      <y>270</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="contadorJuego">
+    <property name="geometry">
+     <rect>
+      <x>1233</x>
+      <y>452</y>
+      <width>191</width>
+      <height>51</height>
+     </rect>
+    </property>
+   </widget>
    <zorder>graphicsView_3</zorder>
    <zorder>graphicsView_2</zorder>
    <zorder>graphicsView</zorder>
-   <zorder>tijera</zorder>
+   <zorder>ButtomTijera</zorder>
    <zorder>label</zorder>
    <zorder>cantidadTijeras</zorder>
-   <zorder>piedra</zorder>
+   <zorder>ButtomPiedra</zorder>
    <zorder>label_2</zorder>
    <zorder>cantidadPiedras</zorder>
-   <zorder>papel</zorder>
+   <zorder>ButtomPapel</zorder>
    <zorder>label_3</zorder>
    <zorder>cantidadPapeles</zorder>
    <zorder>label_4</zorder>
@@ -290,6 +323,9 @@
    <zorder>puntosTijeras</zorder>
    <zorder>label_8</zorder>
    <zorder>IniciarConJugador</zorder>
+   <zorder>label_9</zorder>
+   <zorder>puntosJugador</zorder>
+   <zorder>contadorJuego</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

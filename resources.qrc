@@ -4,5 +4,6 @@
         <file>piedra.png</file>
         <file>tijera.png</file>
         <file>explosion.png</file>
+        <file>mira.png</file>
     </qresource>
 </RCC>
