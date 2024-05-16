@@ -47,33 +47,34 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::on_ButtomTijera_clicked(){
+    //agregar las tijeras a la escena presionando el botón
     if(tijeras<5){
         tijera = new Tijera;
         scene->addItem(tijera);
         switch(tijeras){
         case 0:
-            tijera->setPos(10,100);
-            tijera->setPosY(100);
-            ntijeras.push_back(tijera);
-            break;
-        case 1:
             tijera->setPos(10,200);
             tijera->setPosY(200);
             ntijeras.push_back(tijera);
             break;
-        case 2:
+        case 1:
             tijera->setPos(10,300);
             tijera->setPosY(300);
             ntijeras.push_back(tijera);
             break;
-        case 3:
+        case 2:
             tijera->setPos(10,400);
             tijera->setPosY(400);
             ntijeras.push_back(tijera);
             break;
-        case 4:
+        case 3:
             tijera->setPos(10,500);
             tijera->setPosY(500);
+            ntijeras.push_back(tijera);
+            break;
+        case 4:
+            tijera->setPos(10,600);
+            tijera->setPosY(600);
             ntijeras.push_back(tijera);
             break;
         }
@@ -89,33 +90,35 @@ void MainWindow::on_ButtomTijera_clicked(){
 }
 
 void MainWindow::on_ButtomPiedra_clicked(){
+     //agregar las piedras a la escena presionando el botón
     if(piedras<5){
         piedra = new Piedra;
         scene->addItem(piedra);
         switch(piedras){
         case 0:
-            piedra->setPos(100,10);
-            piedra->setPosX(100);
+            piedra->setPos(200,600);
+            piedra->setPosX(200);
+
             npiedras.push_back(piedra);
             break;
         case 1:
-            piedra->setPos(300,10);
-            piedra->setPosX(300);
+            piedra->setPos(400,600);
+            piedra->setPosX(400);
             npiedras.push_back(piedra);
             break;
         case 2:
-            piedra->setPos(500,10);
-            piedra->setPosX(500);
+            piedra->setPos(600,600);
+            piedra->setPosX(600);
             npiedras.push_back(piedra);
             break;
         case 3:
-            piedra->setPos(700,10);
-            piedra->setPosX(700);
+            piedra->setPos(800,600);
+            piedra->setPosX(800);
             npiedras.push_back(piedra);
             break;
         case 4:
-            piedra->setPos(900,10);
-            piedra->setPosX(900);
+            piedra->setPos(1000,600);
+            piedra->setPosX(1000);
             npiedras.push_back(piedra);
             break;
         }
@@ -131,6 +134,7 @@ void MainWindow::on_ButtomPiedra_clicked(){
 }
 
 void MainWindow::on_ButtomPapel_clicked(){
+     //agregar los papeles a la escena presionando el botón
     if(papeles<5){
         papel = new Papel;
         scene->addItem(papel);
@@ -247,9 +251,24 @@ void MainWindow::actualizarColision(){
 }
 
 void MainWindow::activarTimer(){
-    ui->contadorJuego->display(tiempo);
     tiempo--;
-    if(tiempo<=0){
+    if(tiempo==499){
+        tiempo=459;
+    }
+    else if(tiempo==399){
+        tiempo=359;
+    }
+    else if(tiempo==299){
+        tiempo=259;
+    }
+    else if(tiempo==199){
+        tiempo=159;
+    }
+    else if(tiempo==99){
+        tiempo=59;
+    }
+    ui->contadorJuego->display(tiempo);
+    if(tiempo==0){
         if(puntosPiedra>puntosPapel && puntosPiedra>puntosTijera && puntosPiedra>puntosJugador){
             QMessageBox msgBox;
             msgBox.setText("Tiempo terminado.\n"
@@ -317,7 +336,7 @@ void MainWindow::activarTimer(){
 void MainWindow::on_IniciarConJugador_clicked(){
     scene->addItem(mira);
     mira->setPos(600,350);
-    //ui->contadorJuego->display(tiempo);
+    ui->contadorJuego->display(tiempo);
     QTimer *cronometro= new QTimer(this);
     connect(cronometro, &QTimer::timeout, this, &MainWindow::activarTimer);
     cronometro->start(1000);
@@ -326,9 +345,24 @@ void MainWindow::on_IniciarConJugador_clicked(){
     ui->ButtomPapel->setEnabled(false);
     ui->IniciarConJugador->setEnabled(false);
 
-    //QTimer *timerPiedras=new QTimer(this);
-    //connect(*timerPiedras, &QTimer::timeout, this, &MainWindow::activarTimer);
-    //cronometro->start(1000);
+
+    if(piedras<5){
+        QTimer *timerPiedras=new QTimer(this);
+        connect(timerPiedras, &QTimer::timeout, this, &MainWindow::on_ButtomPiedra_clicked);
+        timerPiedras->start(10000);
+    }
+    timer->start(100);
+    if(papeles<5){
+        QTimer *timerPapeles=new QTimer(this);
+        connect(timerPapeles, &QTimer::timeout, this, &MainWindow::on_ButtomPapel_clicked);
+        timerPapeles->start(12000);
+    }
+    timer->start(100);
+    if(tijeras<5){
+        QTimer *timerTijeras=new QTimer(this);
+        connect(timerTijeras, &QTimer::timeout, this, &MainWindow::on_ButtomTijera_clicked);
+        timerTijeras->start(14000);
+    }
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event){

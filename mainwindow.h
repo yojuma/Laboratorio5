@@ -32,7 +32,7 @@ public:
     int puntosPiedra=0;
     int puntosTijera=0;
     int puntosJugador=0;
-    int tiempo=20;
+    int tiempo=500;
     ~MainWindow();
 
 private slots:
