@@ -36,7 +36,7 @@ void Papel::actualizarEscena(){
 }
 
 void Papel::checkCollision(){
-    qDebug()<<"posX: "<<getPosX();
+    //qDebug()<<"posX: "<<getPosX();
 
     // colision con el borde superior o el inferior
     if(getPosY() >= VERTLIMIT - getHeight()){ //inferior
