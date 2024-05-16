@@ -26,6 +26,7 @@ public:
     float getHeight();
     bool direccion;
     void setPosX(int newX);
+    void setPosY(int newY);
 
 public slots:
     void actualizarEscena();

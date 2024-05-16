@@ -5,7 +5,7 @@ Piedra::Piedra(QObject *parent)
 {
      rowPixmap = 0;
      colPixmap = 0;
-     posY=10;
+     posY=600;
      width = 93;
      height = 92;
      direccion = true;
@@ -55,6 +55,10 @@ float Piedra::getHeight(){
 
 void Piedra::setPosX(int newX){
     posX=newX;
+}
+
+void Piedra::setPosY(int newY){
+    posY=newY;
 }
 
 
