@@ -67,4 +67,3 @@ qreal Jugador::getPosY(){
     return posY;
 }
 
-
