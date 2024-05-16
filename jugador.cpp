@@ -16,8 +16,7 @@ Jugador::Jugador(QObject *parent)
     connect(timer, &QTimer::timeout, this, &Jugador::actualizarPersonaje);
 }
 
-void Jugador::actualizarPersonaje()
-{
+void Jugador::actualizarPersonaje(){
     update(0, 0, width, height);
 }
 
@@ -67,3 +66,5 @@ qreal Jugador::getPosX(){
 qreal Jugador::getPosY(){
     return posY;
 }
+
+

@@ -7,6 +7,8 @@
 #include <QPainter>
 #include <QTimer>
 
+const float LIMITHORZ = 1200;
+const float LIMITVERT = 700;
 
 class Jugador : public QObject, public QGraphicsItem{
     Q_OBJECT
