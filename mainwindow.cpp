@@ -43,6 +43,9 @@ MainWindow::~MainWindow(){
     delete papel;
     delete tijera;
     delete mira;
+    delete timer;
+    delete cronometro;
+    delete scene;
     delete ui;
 }
 
@@ -274,11 +277,12 @@ void MainWindow::activarTimer(){
             msgBox.setText("Tiempo terminado.\n"
                            "El ganador es Piedra.");
             msgBox.exec();
-            timer->stop();
+            cronometro->stop();
             delete piedra;
             delete papel;
             delete tijera;
             delete mira;
+            delete scene;
             delete ui;
         }
         else if(puntosPapel>puntosPiedra && puntosPapel>puntosTijera && puntosPapel>puntosJugador){
@@ -286,11 +290,12 @@ void MainWindow::activarTimer(){
             msgBox.setText("Tiempo terminado.\n"
                            "El ganador es Papel.");
             msgBox.exec();
-            timer->stop();
+            cronometro->stop();
             delete piedra;
             delete papel;
             delete tijera;
             delete mira;
+            delete scene;
             delete ui;
         }
         else if(puntosTijera>puntosPapel && puntosTijera>puntosPiedra && puntosTijera>puntosJugador){
@@ -298,11 +303,12 @@ void MainWindow::activarTimer(){
             msgBox.setText("Tiempo terminado.\n"
                            "El ganador es Tijera.");
             msgBox.exec();
-            timer->stop();
+            cronometro->stop();
             delete piedra;
             delete papel;
             delete tijera;
             delete mira;
+            delete scene;
             delete ui;
         }
         else if(puntosJugador>puntosPapel && puntosJugador>puntosTijera && puntosJugador>puntosPiedra){
@@ -310,11 +316,12 @@ void MainWindow::activarTimer(){
             msgBox.setText("Tiempo terminado.\n"
                            "El ganador es el Jugador.");
             msgBox.exec();
-            timer->stop();
+            cronometro->stop();
             delete piedra;
             delete papel;
             delete tijera;
             delete mira;
+            delete scene;
             delete ui;
         }
         else{
@@ -322,11 +329,12 @@ void MainWindow::activarTimer(){
             msgBox.setText("Tiempo terminado.\n"
                            "No hay ganador.");
             msgBox.exec();
-            timer->stop();
+            cronometro->stop();
             delete piedra;
             delete papel;
             delete tijera;
             delete mira;
+            delete scene;
             delete ui;
         }
 
@@ -337,7 +345,7 @@ void MainWindow::on_IniciarConJugador_clicked(){
     scene->addItem(mira);
     mira->setPos(600,350);
     ui->contadorJuego->display(tiempo);
-    QTimer *cronometro= new QTimer(this);
+
     connect(cronometro, &QTimer::timeout, this, &MainWindow::activarTimer);
     cronometro->start(1000);
     ui->ButtomTijera->setEnabled(false);
